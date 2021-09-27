@@ -9,3 +9,7 @@ def index():
 def trigger():
     print('Akshi Bhasker developed this code/ Girl Engineers')
     return 'Navtech Secured Script Flask - Test Version 1 '
+
+@app.route("/test")
+def test():
+    return 'Navtech API running... '
