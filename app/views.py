@@ -12,16 +12,14 @@ def trigger():
     print('Akshi Bhasker developed this code/ Girl Engineers')
     return 'Navtech Secured Script Flask - Test Version 1 '
 
-def token_required(f):
-    @wraps(f)
-    def decorated(*args, **kwargs):
-        token = 6194df3c829666a24686dbc492081659408b9cafc18af2f19136e70ecb9cb871
-        # jwt is passed in the request header
-        if token in request.headers:
-            token = request.headers['token']
-        # return 401 if token is not passed
-        if not token:
-            return jsonify({'message' : 'Token is missing !!'}), 401
+@app.route("/API")
+def API()
+    headers = request.headers
+    auth = headers.get("X-Api-Key")
+    if auth == '6194df3c829666a24686dbc492081659408b9cafc18af2f19136e70ecb9cb871':
+        return jsonify({"message": "OK: Authorized"}), 200
+    else:
+        return jsonify({"message": "ERROR: Unauthorized"}), 401
 
 @app.route("/test")
 def test():
