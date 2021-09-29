@@ -1,6 +1,5 @@
 from app import app
 from flask import Flask, render_template, request, jsonify, make_response
-import jwt
 from functools import wraps
 
 @app.route("/")
@@ -13,7 +12,7 @@ def trigger():
     return 'Navtech Secured Script Flask - Test Version 1 '
 
 @app.route("/API")
-def API()
+def API():
     headers = request.headers
     auth = headers.get("X-Api-Key")
     if auth == '6194df3c829666a24686dbc492081659408b9cafc18af2f19136e70ecb9cb871':
