@@ -11,6 +11,12 @@ def trigger():
     print('Akshi Bhasker developed this code/ Girl Engineers')
     return 'Navtech Secured Script Flask - Test Version 1 '
 
+@app.route('/query-example')
+def query_example():
+    # if key doesn't exist, returns None
+    language = request.args.get('language')
+    return '''<h1>The language value is: {}</h1>'''.format(language)
+
 @app.route("/API")
 def API():
     headers = request.headers
