@@ -21,7 +21,7 @@ def query_example():
 def API():
     headers = request.headers
     auth = headers.get("X-Api-Key")
-    if auth == '6194df3c829666a24686dbc492081659408b9cafc18af2f19136e70ecb9cb871':
+    if auth == '782701794ad0eae0957c0d35fb32cf5d675d38566b76838b6dbcb9ecdf8fe957':
         return jsonify({"message": "OK: Authorized"}), 200
     else:
         return jsonify({"message": "ERROR: Unauthorized"}), 401
